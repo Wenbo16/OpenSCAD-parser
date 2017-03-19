@@ -69,7 +69,7 @@ def predictor(state, k, grammar, chart, stateSet, index):
             chart[k].append( newState )
             stateSet.add( newState )
             subindex +=1
-        if production == "":                 # bug solved
+        if production == "":
             jumpState = (state[RULE_VARIABLE], state[RULE_STRINGS], state[DOT_LOCATION]+1, state[3], state[BACK_POINTER])
             jumpState = addBackPointer(jumpState, (k, index+subindex))
             if jumpState not in stateSet:

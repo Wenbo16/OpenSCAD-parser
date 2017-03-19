@@ -1,6 +1,5 @@
 import ply.lex as lex
 
-
 tokens = [
     'LE',
     'GE',
@@ -12,7 +11,7 @@ tokens = [
     'TOK_NUMBER',
     'TOK_STRING',
     # 'TOK_USE',
-    # 'TOK_ERROR'
+    'TOK_ERROR'
 ]
 
 
@@ -47,12 +46,6 @@ t_OR = r"\|\|"
 t_TOK_STRING = r"\".* \""  # /n not allowed
 
 
-# D = r'[0-9]'           // 1,2,3,...
-# E = r'[Ee][+-]?{D}+'   //  e+1231, e123
-
-# {D}+{E}? |
-# {D}*\.{D}+{E}? |    //333.989e-6,  .989e-6
-# {D}+\.{D}*{E}?
 
 def  t_TOK_NUMBER(token):
     r"\d*\.\d+([Ee][+-]?\d+)?|\d+\.\d*([Ee][+-]?\d}+)|\d+([Ee][+-]?\d+)?"
@@ -73,13 +66,29 @@ def t_TOK_ID(token):
 t_ignore  = ' \t'
 
 # Error handling rule
+def t_TOK_ERROR(token):
+    r'(?u).+'
+    return token
+
+
+# Error handling rule
 def t_error(token):
     print "Illegal character '%s'" % token.value[0]
     token.lexer.skip(1)
 
+
+
 # Build the lexer
 lexer = lex.lex()
 
+def getTokens(data):
+    lexer.input(data)
+    code = []
+    while True:
+        tok = lexer.token()
+        if not tok: break  # No more input
+        code.append(tok.type)  # print tok.type, tok.value, tok.line, tok.lexpos
+    return code
 
 
 

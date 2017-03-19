@@ -118,52 +118,11 @@ grammar= {
 
 
 # origin2 = [2,3];
-data1 = '''
-n = 2+3;
-'''
 
 
 # Test it out
-data2 = '''
-translate([0, 0, 30]) {
-    cylinder(h=40, r=10);
-}
-'''
 
 
-data3 = '''
-TotalWidth = dxf_dim(file="drawing.dxf", name="TotalWidth", layer="SCAD.Origin", origin=[0, 0], scale=1);
-'''
-
-data4 = '''
- for(i=[0:36])
-    translate([i*10,0,0])
-       cylinder(r=5,h=cos(i*10)*50+60);
-'''
-
-data5 = '''
- for(i=[0:36]) {
-   for(j=[0:36]) {
-     color( [0.5+sin(10*i)/2, 0.5+sin(10*j)/2, 0.5+sin(10*(i+j))/2] )
-     translate( [i, j, 0] )
-     cube( size = [1, 1, 11+10*cos(10*i)*sin(10*j)] );
-   }
- }
-'''
-
-data6 = '''
-linear_extrude(height = 60, twist = 90, slices = 60) {
-  difference() {
-    offset(r = 10) {
-      square(20, center = true);
-    }
-    offset(r = 8) {
-      square(20, center = true);
-    }
-  }
-}
-
-'''
 
 data7 = '''
 seed=42;

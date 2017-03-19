@@ -1,7 +1,5 @@
 from parsing import Earley_Parser, findRoot
 
-# Get the token map from the lexer.  This is required.
-
 grammar= {
     "nonterminals" : [ "Start", "S", "NP", "VP", "prep", "N", "Adj" ,"Aux", "V"],
     "terminals" : set([ "the", "large", 'bottle', "can","hold", "water"]),
