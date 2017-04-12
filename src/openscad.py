@@ -1,8 +1,5 @@
-import ply.yacc as yacc
-
 # Get the token map from the lexer.  This is required.
 
-from tokenization import tokens, literals
 from parsing import Earley_Parser, findRoot
 
 # Get the token map from the lexer.  This is required.
@@ -115,13 +112,6 @@ grammar= {
 
               }
 }
-
-
-# origin2 = [2,3];
-
-
-# Test it out
-
 
 
 data7 = '''
