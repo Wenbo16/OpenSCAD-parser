@@ -1,0 +1,6 @@
+paper 
+sparse feature
+
+alpha >0 -> support vectors
+
+saddle point
